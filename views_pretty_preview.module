@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Views Pretty Preview module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\rest\Plugin\views\display\RestExport;
+
+function views_pretty_preview_form_view_preview_form_alter(array &$form, FormStateInterface $form_state) {
+  $view = $form_state->getFormObject()->getEntity()->getExecutable();
+  $display = $view->getDisplay($view->current_display);
+
+  if ($display instanceof RestExport) {
+    if ($display->getMimeType() === 'application/json') {
+      $form['#attached']['library'][] = 'views_pretty_preview/json-formatter';
+      $form['#attached']['library'][] = 'views_pretty_preview/json';
+      $form['#attributes']['class'][] = 'views-pretty-preview-view';
+    }
+  }
+}

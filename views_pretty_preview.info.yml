@@ -1,0 +1,9 @@
+name: Views Pretty Preview
+type: module
+description: Prettifies views preview
+package: Views
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:views
+  - drupal:views_ui
+  - drupal:rest

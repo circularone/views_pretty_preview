@@ -1,0 +1,20 @@
+# Custom module library for general purposes.
+json:
+  js:
+    js/views-pretty-preview-json.js: {}
+  dependencies:
+    - core/drupalSettings
+    - vpb/json-formatter
+
+json-formatter:
+  remote: 'https://github.com/mohsen1/json-formatter-js'
+  version: 2.3.4
+  license:
+    name: MIT
+    url: 'https://cdn.jsdelivr.net/npm/json-formatter-js@2.3.4/LICENSE'
+    gpl-compatible: true
+  js:
+    'https://cdn.jsdelivr.net/npm/json-formatter-js@2.3.4/dist/json-formatter.umd.min.js': { type: external }
+  css:
+    component:
+      'https://cdn.jsdelivr.net/npm/json-formatter-js@2.3.4/dist/json-formatter.css': { type: external }
